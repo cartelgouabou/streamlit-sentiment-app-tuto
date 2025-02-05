@@ -2,33 +2,8 @@ import streamlit as st
 import pandas as pd
 import time
 import plotly.graph_objects as go
-from prometheus_client import start_http_server, Gauge, Counter, REGISTRY
 
 from model import predict_sentiment
-
-# Start Prometheus metrics server only once
-if "server_started" not in st.session_state:
-    try:
-        start_http_server(8001)  # Metrics available at port 8001
-    except OSError:
-        pass  # Avoid "Address already in use" error on reruns
-    st.session_state.server_started = True
-
-# Define a request counter
-if "request_count_metric" not in st.session_state:
-    try:
-        st.session_state.request_count_metric = Counter("ml_model_requests_total", "Total number of prediction requests", registry=REGISTRY)
-    except ValueError:
-        # Metric already exists, retrieve it instead
-        st.session_state.request_count_metric = REGISTRY._names_to_collectors["ml_model_requests_total"]
-
-# Define the Prometheus Gauge only once
-if "accuracy_metric" not in st.session_state:
-    try:
-        st.session_state.accuracy_metric = Gauge("ml_model_accuracy", "User-reported model accuracy", registry=REGISTRY)
-    except ValueError:
-        # Metric already exists, retrieve it instead
-        st.session_state.request_count_metric = REGISTRY._names_to_collectors["ml_model_accuracy"]
 
 # Initialize session state variables
 if "accuracy_history" not in st.session_state:
