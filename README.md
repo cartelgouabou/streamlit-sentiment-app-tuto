@@ -8,7 +8,7 @@ This repository contains the **Streamlit app** for the **Sentiment Analysis & Mo
 
 This repository is part of a larger tutorial from the **Fullstack AI Course**. It serves as a lightweight, deployable version of the app to showcase how to integrate **Prometheus** and **Grafana** for monitoring machine learning model performance.
 
-- **Deployed App:** [Streamlit Sentiment Analysis App](https://your-app-url.streamlit.app) *(Replace with your Streamlit app URL once deployed)*
+- **Deployed App:** [Streamlit Sentiment Analysis App](https://app-sentiment-app-tuto-blmogyankjkwsuh77prxvq.streamlit.app/)
 
 ---
 
