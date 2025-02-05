@@ -17,7 +17,7 @@ if "yes_count" not in st.session_state:
 if "no_count" not in st.session_state:
     st.session_state.no_count = 0
 
-st.title("📊 Sentiment Analysis & Model Monitoring")
+st.title("Sentiment Analysis & Model Monitoring")
 
 # --- Section 1: Sentiment Prediction ---
 st.header("💬 Try It Out!")
