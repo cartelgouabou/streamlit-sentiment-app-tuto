@@ -25,8 +25,6 @@ st.header("💬 Try It Out!")
 user_input = st.text_area("Enter a sentence:", "I love this!")
 
 if st.button("Analyze Sentiment"):
-    # Increment the request count each time a prediction is made
-    st.session_state.request_count_metric.inc()
 
     label, confidence = predict_sentiment(user_input)
     emoji = "😊" if label == "POSITIVE" else "😡" if label == "NEGATIVE" else "😐"
@@ -73,8 +71,6 @@ elif st.session_state.feedback_given == "no":
 # Update Prometheus metric
 if len(st.session_state.accuracy_history) > 0:
     avg_accuracy = sum(acc[1] for acc in st.session_state.accuracy_history) / len(st.session_state.accuracy_history)
-    # Update accuracy based on user feedback
-    st.session_state.accuracy_metric.set(avg_accuracy)
     st.success(f"📈 Model Accuracy: {avg_accuracy:.2%}")
 
 # --- Section 2: Accuracy Trend Over Time ---
