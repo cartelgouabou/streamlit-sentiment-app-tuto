@@ -1,0 +1,5 @@
+torch
+transformers
+plotly
+streamlit
+prometheus_client
